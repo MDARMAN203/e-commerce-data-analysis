@@ -1,6 +1,6 @@
 # E-Commerce Sales & Profitability Analysis
-<img width="1076" height="603" alt="Screenshot 2026-09-09 053322" src="https://github.com/user-attachments/assets/ed11da67-bdb6-4197-a08b-ea4f5d372c25" />
 
+<img width="1076" height="603" alt="Screenshot 2026-09-09 053322" src="https://github.com/user-attachments/assets/ed11da67-bdb6-4197-a08b-ea4f5d372c25" />
 
 ## 📌 Overview
 An executive dashboard analyzing global e-commerce order data (51,290 orders, 2011–2014, across 7 markets) to identify where the business drives profit — and where sales volume is not translating into profit.
@@ -15,7 +15,7 @@ Raw sales volume can hide weak profitability. This analysis separates *how much 
 ---
 
 ## 🧹 Data Cleaning & Preparation Process
-The raw dataset (`Data & Resources/ECOMM DATA.xlsx`) has 4 related tables: Orders, Returns, People, and a location-mapping sheet.
+The raw dataset (`data/ECOMM DATA.xlsx`) has 4 related tables: Orders, Returns, People, and a location-mapping sheet.
 1. **Missing values:** Only `Postal Code` had nulls (41,296 of 51,290 rows) — not used in any analysis, so left as-is rather than dropping otherwise-valid rows.
 2. **Duplicates:** Checked the Orders table — 0 duplicate rows found.
 3. **Relational join:** `Returns` only flags returns at the Order ID level (no category field), so category-level return rate was calculated by joining `Orders` to `Returns` on `Order ID`, then aggregating by `Category`.
@@ -44,7 +44,7 @@ The raw dataset (`Data & Resources/ECOMM DATA.xlsx`) has 4 related tables: Order
 ## 🛠️ Tech Stack & Tools Used
 * **Python** (pandas) — data cleaning, table joins, and verification of all figures above (`analysis.py`)
 * **SQL** (SQLite) — business-question queries (`analysis_queries.sql`)
-* **Power BI** — executive dashboard (`E-Commerce Data Analysis.pbix`)
+* **HTML/CSS** — executive dashboard (`Dashboard.htm`)
 
 ---
 
@@ -52,7 +52,7 @@ The raw dataset (`Data & Resources/ECOMM DATA.xlsx`) has 4 related tables: Order
 1. `python analysis.py` — cleans the data, joins Orders with Returns, and prints/saves all the figures used in the Key Insights above
 2. `python load_to_sqlite.py` — loads the cleaned data into a local SQLite database
 3. Run `analysis_queries.sql` against the database to reproduce the category/market/return-rate breakdowns
-4. Open `E-Commerce Data Analysis.pbix` in Power BI to view the dashboard
+4. Open `Dashboard.htm` in any web browser to view the dashboard
 
 ---
 
@@ -62,8 +62,5 @@ data/ECOMM DATA.xlsx                          ← raw dataset (Orders, Returns, 
 analysis.py                                   ← Step 1: cleaning + join + insight calculations
 load_to_sqlite.py                             ← Step 2: loads cleaned data into SQLite
 analysis_queries.sql                          ← Step 3: SQL business-question queries
-E-Commerce Data Analysis.pbix                 ← Power BI dashboard
-E-Commerce Data Analysis_page.jpg             ← dashboard screenshot
+Dashboard.htm                                 ← executive dashboard (HTML/CSS)
 ```
-
-
