@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>E-Commerce Sales & Profitability Dashboard</title>
+  <style>
+    body { margin: 0; background: #0F172A; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    .canvas { width: 1200px; height: 675px; background: #F8FAFC; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); display: flex; flex-direction: column; padding: 16px; box-sizing: border-box; gap: 12px; }
+    .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px; }
+    .title h1 { margin: 0; font-size: 20px; color: #1E293B; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .title p { margin: 3px 0 0 0; font-size: 11px; color: #64748B; font-style: italic; }
+    .filters { display: flex; gap: 8px; }
+    .filter-btn { background: #FFFFFF; border: 1px solid #CBD5E1; padding: 4px 10px; border-radius: 4px; font-size: 11px; color: #475569; font-weight: 600; }
+
+    .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .kpi-card { background: #FFFFFF; border-radius: 6px; padding: 10px 14px; border-left: 4px solid #3B82F6; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .kpi-card.margin { border-left-color: #10B981; }
+    .kpi-title { font-size: 11px; color: #64748B; font-weight: 600; text-transform: uppercase; }
+    .kpi-val { font-size: 22px; font-weight: 700; color: #0F172A; margin: 4px 0 2px 0; }
+    .kpi-sub { font-size: 10px; color: #10B981; font-weight: 600; }
+
+    .grid-middle { display: grid; grid-template-columns: 1.1fr 1fr 1.1fr; gap: 10px; height: 210px; }
+    .grid-bottom { display: grid; grid-template-columns: 1.6fr 1.2fr; gap: 10px; height: 210px; }
+    .panel { background: #FFFFFF; border-radius: 6px; padding: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+    .panel-header { font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 8px; text-transform: uppercase; }
+
+    .bar-row { display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: #475569; margin-bottom: 6px; }
+    .bar-track { flex-grow: 1; height: 12px; background: #F1F5F9; border-radius: 3px; margin: 0 8px; overflow: hidden; }
+    .bar-fill { height: 100%; background: #3B82F6; border-radius: 3px; }
+
+    .footer-box { background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 6px; padding: 8px 14px; font-size: 11px; color: #1E40AF; display: flex; align-items: center; gap: 8px; }
+  </style>
+</head>
+<body>
+
+<div class="canvas">
+  <div class="header">
+    <div class="title">
+      <h1>E-Commerce Sales & Profitability Executive Dashboard</h1>
+      <p>"Which markets, categories, and shipping modes drive profit — and where are we losing money?"</p>
+    </div>
+    <div class="filters">
+      <div class="filter-btn">Category: All ▾</div>
+      <div class="filter-btn">Ship Mode: All ▾</div>
+      <div class="filter-btn">Market: All ▾</div>
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-title">Total Sales</div>
+      <div class="kpi-val">$12.64M</div>
+      <div class="kpi-sub" style="color:#64748B;">2011–2014, all markets</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">Total Profit</div>
+      <div class="kpi-val">$1.47M</div>
+      <div class="kpi-sub">● +23.9% YoY (2014)</div>
+    </div>
+    <div class="kpi-card margin">
+      <div class="kpi-title">Profit Margin %</div>
+      <div class="kpi-val">11.61%</div>
+      <div class="kpi-sub" style="color:#64748B;">● Varies sharply by category</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">Quantity Sold</div>
+      <div class="kpi-val">178.31K</div>
+      <div class="kpi-sub">● Units</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-title">Shipping Cost</div>
+      <div class="kpi-val">$1.35M</div>
+      <div class="kpi-sub" style="color:#64748B;">10.7% of Sales</div>
+    </div>
+  </div>
+
+  <div class="grid-middle">
+    <div class="panel">
+      <div class="panel-header">Top 5 Sub-Regions by Sales (Global)</div>
+      <div class="bar-row"><span>England (UK)</span><div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div><span>$485.2K</span></div>
+      <div class="bar-row"><span>California (US)</span><div class="bar-track"><div class="bar-fill" style="width: 94%;"></div></div><span>$457.7K</span></div>
+      <div class="bar-row"><span>Ile-de-France</span><div class="bar-track"><div class="bar-fill" style="width: 66%;"></div></div><span>$317.8K</span></div>
+      <div class="bar-row"><span>New York (US)</span><div class="bar-track"><div class="bar-fill" style="width: 64%;"></div></div><span>$310.9K</span></div>
+      <div class="bar-row"><span>New S. Wales</span><div class="bar-track"><div class="bar-fill" style="width: 56%;"></div></div><span>$270.5K</span></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">Sales by Market</div>
+      <div class="bar-row"><span>APAC</span><div class="bar-track"><div class="bar-fill" style="width: 100%; background: #2563EB;"></div></div><span>$3.59M</span></div>
+      <div class="bar-row"><span>EU</span><div class="bar-track"><div class="bar-fill" style="width: 82%; background: #2563EB;"></div></div><span>$2.94M</span></div>
+      <div class="bar-row"><span>US</span><div class="bar-track"><div class="bar-fill" style="width: 64%; background: #2563EB;"></div></div><span>$2.30M</span></div>
+      <div class="bar-row"><span>LATAM</span><div class="bar-track"><div class="bar-fill" style="width: 60%; background: #2563EB;"></div></div><span>$2.16M</span></div>
+      <div class="bar-row"><span>EMEA</span><div class="bar-track"><div class="bar-fill" style="width: 22%; background: #2563EB;"></div></div><span>$0.81M</span></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">Sales by Shipping Mode</div>
+      <div class="bar-row"><span>Standard</span><div class="bar-track"><div class="bar-fill" style="width: 100%; background: #0284C7;"></div></div><span>$7.58M (60%)</span></div>
+      <div class="bar-row"><span>Second Class</span><div class="bar-track"><div class="bar-fill" style="width: 34%; background: #0284C7;"></div></div><span>$2.57M (20%)</span></div>
+      <div class="bar-row"><span>First Class</span><div class="bar-track"><div class="bar-fill" style="width: 24%; background: #0284C7;"></div></div><span>$1.83M (14%)</span></div>
+      <div class="bar-row"><span>Same Day</span><div class="bar-track"><div class="bar-fill" style="width: 9%; background: #0284C7;"></div></div><span>$0.67M (5%)</span></div>
+    </div>
+  </div>
+
+  <div class="grid-bottom">
+    <div class="panel">
+      <div class="panel-header">Category Sales vs Profit Margin %</div>
+      <div style="display:flex; justify-content:space-around; align-items:flex-end; height:100%; padding: 10px 0;">
+        <div style="text-align:center;">
+          <div style="color:#059669; font-size:10px; font-weight:700;">14.0% Margin</div>
+          <div style="height:110px; width:45px; background:#1E3A8A; border-radius:4px; margin:4px auto;"></div>
+          <span style="font-size:11px; color:#334155;">Technology<br><b>$4.74M</b></span>
+        </div>
+        <div style="text-align:center;">
+          <div style="color:#DC2626; font-size:10px; font-weight:700;">7.0% Margin</div>
+          <div style="height:95px; width:45px; background:#1E3A8A; border-radius:4px; margin:4px auto;"></div>
+          <span style="font-size:11px; color:#334155;">Furniture<br><b>$4.11M</b></span>
+        </div>
+        <div style="text-align:center;">
+          <div style="color:#059669; font-size:10px; font-weight:700;">14.0% Margin</div>
+          <div style="height:88px; width:45px; background:#1E3A8A; border-radius:4px; margin:4px auto;"></div>
+          <span style="font-size:11px; color:#334155;">Office Supplies<br><b>$3.79M</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">Top 7 Sales by Country</div>
+      <div class="bar-row"><span>United States</span><div class="bar-track"><div class="bar-fill" style="width: 100%; background:#475569;"></div></div><span>$2.30M</span></div>
+      <div class="bar-row"><span>Australia</span><div class="bar-track"><div class="bar-fill" style="width: 40%; background:#475569;"></div></div><span>$925K</span></div>
+      <div class="bar-row"><span>France</span><div class="bar-track"><div class="bar-fill" style="width: 37%; background:#475569;"></div></div><span>$859K</span></div>
+      <div class="bar-row"><span>China</span><div class="bar-track"><div class="bar-fill" style="width: 31%; background:#475569;"></div></div><span>$701K</span></div>
+      <div class="bar-row"><span>Germany</span><div class="bar-track"><div class="bar-fill" style="width: 27%; background:#475569;"></div></div><span>$629K</span></div>
+    </div>
+  </div>
+
+  <div class="footer-box">
+    <b>Executive Insight:</b> APAC & EU drive 52% of global sales. Furniture generates strong revenue ($4.11M) but converts at just 7% margin vs. 14% for Technology and Office Supplies — a pricing or cost-structure issue worth investigating, not a demand problem.
+  </div>
+</div>
+
+</body>
+</html>
