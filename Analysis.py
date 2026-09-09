@@ -1,6 +1,6 @@
 import pandas as pd
 
-xl = pd.ExcelFile("Data & Resources/ECOMM DATA.xlsx")
+xl = pd.ExcelFile("data/ECOMM DATA.xlsx")
 orders = xl.parse("Orders")
 returns = xl.parse("Returns")
 
