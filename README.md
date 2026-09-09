@@ -1,6 +1,6 @@
-
-<img width="1076" height="603" alt="Screenshot 2026-09-09 053322" src="https://github.com/user-attachments/assets/ed11da67-bdb6-4197-a08b-ea4f5d372c25" />
 # E-Commerce Sales & Profitability Analysis
+<img width="1076" height="603" alt="Screenshot 2026-09-09 053322" src="https://github.com/user-attachments/assets/ed11da67-bdb6-4197-a08b-ea4f5d372c25" />
+
 
 ## 📌 Overview
 An executive dashboard analyzing global e-commerce order data (51,290 orders, 2011–2014, across 7 markets) to identify where the business drives profit — and where sales volume is not translating into profit.
