@@ -1,5 +1,5 @@
 
-[README_ECOMMERCE.md](https://github.com/user-attachments/files/31981573/README_ECOMMERCE.md)
+<img width="1076" height="603" alt="Screenshot 2026-09-09 053322" src="https://github.com/user-attachments/assets/ed11da67-bdb6-4197-a08b-ea4f5d372c25" />
 # E-Commerce Sales & Profitability Analysis
 
 ## 📌 Overview
